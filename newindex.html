@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>Forismatic API JSONP Test</title>
+	
+	<script>
+        function makeReq() {
+            var script = document.createElement("script");
+            script.type = "type/javascript";
+            script.src = "http://api.forismatic.com/api/1.0/method=getQuote&format=jsonp&lang=en&jsonp=parseQuote";
+            document.getElementsByTagName("head")[0].appendChild(script);
+            };
+        function parseQuote(response) {
+			document.getElementById("quote").textContent = response.quoteText;
+			document.getElementById("author").textContent = response.quoteAuthor;
+		}
+        function makeReq2() {
+            document.getElementById("quote").textContent = "ewew";
+            document.getElementById("author").textContent = "dnjfd"
+        }
+    </script>
+</head>
+
+
+<body>
+
+	<p id="quote"></p>
+	<i id="author"></i>
+	<br>
+	<br>
+	<button id="buton1" onclick="makeReq2()">Change quote</button>
+
+</body>
+
+</html>
